@@ -1,0 +1,201 @@
+{
+  "input": {
+    "workflow": {
+      "50": {
+        "inputs": {
+          "pixels": [
+            "94",
+            0
+          ],
+          "vae": [
+            "56",
+            0
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAEEncode"
+        }
+      },
+      "54": {
+        "inputs": {
+          "text": "a handsome boy, cyberpunk style, hood, neon lights, high-tech clothing, ",
+          "clip": [
+            "57",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "55": {
+        "inputs": {
+          "samples": [
+            "59",
+            0
+          ],
+          "vae": [
+            "56",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "56": {
+        "inputs": {
+          "filename": "ae.sft"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "57": {
+        "inputs": {
+          "filename": "t5xxl_fp8_e4m3fn.safetensors"
+        },
+        "class_type": "DualCLIPLoader",
+        "_meta": {
+          "title": "DualCLIPLoader"
+        }
+      },
+      "59": {
+        "inputs": {
+          "noise": [
+            "63",
+            0
+          ],
+          "guider": [
+            "62",
+            0
+          ],
+          "sampler": [
+            "60",
+            0
+          ],
+          "sigmas": [
+            "61",
+            0
+          ],
+          "latent_image": [
+            "154",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "SamplerCustomAdvanced"
+        }
+      },
+      "60": {
+        "inputs": {
+          "text": "euler"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "KSamplerSelect"
+        }
+      },
+      "61": {
+        "inputs": {
+          "text": "normal",
+          "model": [
+            "149",
+            0
+          ]
+        },
+        "class_type": "BasicScheduler",
+        "_meta": {
+          "title": "BasicScheduler"
+        }
+      },
+      "62": {
+        "inputs": {
+          "model": [
+            "149",
+            0
+          ],
+          "conditioning": [
+            "54",
+            0
+          ]
+        },
+        "class_type": "BasicGuider",
+        "_meta": {
+          "title": "BasicGuider"
+        }
+      },
+      "63": {
+        "inputs": {
+          "value": 387030644768808,
+          "noise_seed": [
+            "148",
+            0
+          ]
+        },
+        "class_type": "RandomNoise",
+        "_meta": {
+          "title": "RandomNoise"
+        }
+      },
+      "94": {
+        "inputs": {
+          "image": "https://image.cdn2.seaart.ai/20240805/52be7987-dfea-4b78-81ad-3af9c4b04309.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "146": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "55",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "148": {
+        "inputs": {
+          "value": -80249010114172
+        },
+        "class_type": "Seed (rgthree)",
+        "_meta": {
+          "title": "Seed (rgthree)"
+        }
+      },
+      "149": {
+        "inputs": {
+          "filename": "flux1-dev-fp8.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "154": {
+        "inputs": {
+          "text": "nearest-exact",
+          "samples": [
+            "50",
+            0
+          ]
+        },
+        "class_type": "LatentUpscaleBy",
+        "_meta": {
+          "title": "LatentUpscaleBy"
+        }
+      }
+    }
+  }
+}
